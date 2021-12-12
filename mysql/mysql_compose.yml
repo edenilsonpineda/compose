@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  # Database
+  db:
+    image: mysql:8
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "L8MAksghK!teK7Pbd34jT.BhggUM2"
+      MYSQL_DATABASE: example
+      MYSQL_USER: nonroot
+      MYSQL_PASSWORD: "xMysQlx0.228"
+      TZ: America/El_Salvador
+    networks:
+      - wpsite
+  # adminer
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - wpsite
+      
+networks:
+  wpsite:
+volumes:
+  db_data:
