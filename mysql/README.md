@@ -9,6 +9,5 @@ Version used:
 ### HOW TO RUN?
 In detached mode
 ```console
-foo@bar:~$ docker-compose -f mysql_compose up -d
-foo
+userfoo@host:~$ docker-compose -f mysql_compose up -d
 ```
