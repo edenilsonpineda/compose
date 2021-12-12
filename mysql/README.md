@@ -1,6 +1,6 @@
-## Docker Compose File for MYSQL
+## Docker Compose File for MySQL
 
-It also has configured a lightweight MYSQL database manager called Adminer.
+It also has configured a lightweight MySQL database manager called Adminer.
 
 Version used:
 - MySQL v8.0+ 
