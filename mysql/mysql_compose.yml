@@ -1,4 +1,4 @@
-version: '3'
+version: '3.6'
 
 services:
   # Database
@@ -10,23 +10,24 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: "L8MAksghK!teK7Pbd34jT.BhggUM2"
+      MYSQL_ROOT_PASSWORD: "RANDOM-SECURE-PASSWORD-MUST-BE-DEFINED-HERE!"
       MYSQL_DATABASE: example
       MYSQL_USER: nonroot
-      MYSQL_PASSWORD: "xMysQlx0.228"
+      MYSQL_PASSWORD: "RANDOM-SECURE-PASSWORD-MUST-BE-DEFINED-HERE!"
       TZ: America/El_Salvador
     networks:
-      - wpsite
-  # adminer
+      - mysql_net
+  # adminer (OPTIONAL)
+  # This is just a lightweight client to connect to your MySql instance
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
     networks:
-      - wpsite
+      - mysql_net
       
 networks:
-  wpsite:
+  mysql_net:
 volumes:
   db_data:
