@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: ${VAULT_CONTAINER_NAME}
+    ports:
+      - "8200:8200"
+    restart: unless-stopped
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID}
+      VAULT_DEV_LISTEN_ADDRESS: ${VAULT_DEV_LISTEN_ADDRESS}
+    volumes:
+      - ./vault-data:/vault/file
+      - ./vault-config:/vault/config
+    cap_add:
+      - IPC_LOCK
+    networks:
+      - vault_network
+
+networks:
+  vault_network:
